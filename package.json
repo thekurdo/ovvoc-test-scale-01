@@ -1,0 +1,12 @@
+{
+  "name": "ovvoc-test-scale-01",
+  "version": "1.0.0",
+  "description": "Analytics engine with lodash (15 files)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/index.test.js"
+  },
+  "dependencies": {
+    "lodash": "3.10.1"
+  }
+}
