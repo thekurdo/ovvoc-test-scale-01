@@ -6,27 +6,27 @@ const _ = require('lodash');
  */
 
 function sumField(records, field) {
-  const values = _.pluck(records, field);
+  const values = _.map(records, field);
   return _.reduce(values, function(sum, v) { return sum + v; }, 0);
 }
 
 function getFirstRecord(records) {
-  return _.first(records);
+  return _.head(records);
 }
 
 function hasCategory(records, category) {
-  const categories = _.pluck(records, 'category');
-  return _.contains(categories, category);
+  const categories = _.map(records, 'category');
+  return _.includes(categories, category);
 }
 
 function averageField(records, field) {
-  const values = _.pluck(records, field);
+  const values = _.map(records, field);
   const sum = _.reduce(values, function(s, v) { return s + v; }, 0);
   return values.length > 0 ? sum / values.length : 0;
 }
 
 function countByField(records, field) {
-  const values = _.pluck(records, field);
+  const values = _.map(records, field);
   return _.countBy(values);
 }
 

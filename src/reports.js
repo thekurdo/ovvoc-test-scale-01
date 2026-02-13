@@ -6,19 +6,19 @@ const _ = require('lodash');
  */
 
 function getReportTitles(reports) {
-  return _.pluck(reports, 'title');
+  return _.map(reports, 'title');
 }
 
 function reportToEntries(report) {
-  return _.pairs(report);
+  return _.toPairs(report);
 }
 
 function buildReport(keys, values) {
-  return _.object(keys, values);
+  return _.fromPairs(keys, values);
 }
 
 function getReportIds(reports) {
-  return _.pluck(reports, 'id');
+  return _.map(reports, 'id');
 }
 
 module.exports = { getReportTitles, reportToEntries, buildReport, getReportIds };

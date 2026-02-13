@@ -11,16 +11,16 @@ function sortByField(items, field) {
 
 function getTopItem(items, field) {
   const sorted = _.sortBy(items, field).reverse();
-  return _.first(sorted);
+  return _.head(sorted);
 }
 
 function getSortKeys(items) {
-  return _.pluck(items, 'sortKey');
+  return _.map(items, 'sortKey');
 }
 
 function getBottomItem(items, field) {
   const sorted = _.sortBy(items, field);
-  return _.first(sorted);
+  return _.head(sorted);
 }
 
 module.exports = { sortByField, getTopItem, getSortKeys, getBottomItem };

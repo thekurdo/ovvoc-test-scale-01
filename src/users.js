@@ -6,24 +6,24 @@ const _ = require('lodash');
  */
 
 function getUsernames(users) {
-  return _.pluck(users, 'username');
+  return _.map(users, 'username');
 }
 
 function hasRole(users, role) {
-  const roles = _.pluck(users, 'role');
-  return _.contains(roles, role);
+  const roles = _.map(users, 'role');
+  return _.includes(roles, role);
 }
 
 function buildUserMap(keys, values) {
-  return _.object(keys, values);
+  return _.fromPairs(keys, values);
 }
 
 function isActiveUser(users, username) {
-  const activeNames = _.pluck(
+  const activeNames = _.map(
     _.filter(users, { active: true }),
     'username'
   );
-  return _.contains(activeNames, username);
+  return _.includes(activeNames, username);
 }
 
 module.exports = { getUsernames, hasRole, buildUserMap, isActiveUser };

@@ -6,22 +6,22 @@ const _ = require('lodash');
  */
 
 function hasEventType(events, type) {
-  const types = _.pluck(events, 'type');
-  return _.contains(types, type);
+  const types = _.map(events, 'type');
+  return _.includes(types, type);
 }
 
 function getLatestEvent(events) {
   const sorted = _.sortBy(events, 'timestamp').reverse();
-  return _.first(sorted);
+  return _.head(sorted);
 }
 
 function getEventNames(events) {
-  return _.pluck(events, 'name');
+  return _.map(events, 'name');
 }
 
 function hasHighPriority(events) {
-  const priorities = _.pluck(events, 'priority');
-  return _.contains(priorities, 'high');
+  const priorities = _.map(events, 'priority');
+  return _.includes(priorities, 'high');
 }
 
 module.exports = { hasEventType, getLatestEvent, getEventNames, hasHighPriority };

@@ -6,24 +6,24 @@ const _ = require('lodash');
  */
 
 function buildRecord(keys, values) {
-  return _.object(keys, values);
+  return _.fromPairs(keys, values);
 }
 
 function getFirstRow(rows) {
-  return _.first(rows);
+  return _.head(rows);
 }
 
 function getDataRows(rows) {
-  return _.rest(rows);
+  return _.tail(rows);
 }
 
 function importCSVRow(headers, values) {
-  return _.object(headers, values);
+  return _.fromPairs(headers, values);
 }
 
 function getHeaderRow(rows) {
-  const header = _.first(rows);
-  const data = _.rest(rows);
+  const header = _.head(rows);
+  const data = _.tail(rows);
   return { header: header, data: data };
 }
 

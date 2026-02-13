@@ -6,28 +6,28 @@ const _ = require('lodash');
  */
 
 function getFirstLabel(items) {
-  return _.first(items);
+  return _.head(items);
 }
 
 function objectToLabelPairs(obj) {
-  return _.pairs(obj).map(function(pair) {
+  return _.toPairs(obj).map(function(pair) {
     return pair[0] + ': ' + pair[1];
   });
 }
 
 function truncateText(text, length) {
-  return _.trunc(text, { length: length });
+  return _.truncate(text, { length: length });
 }
 
 function formatEntry(obj) {
-  return _.pairs(obj).map(function(pair) {
-    return { key: _.first(pair), value: pair[1] };
+  return _.toPairs(obj).map(function(pair) {
+    return { key: _.head(pair), value: pair[1] };
   });
 }
 
 function truncateAll(texts, length) {
   return texts.map(function(text) {
-    return _.trunc(text, { length: length });
+    return _.truncate(text, { length: length });
   });
 }
 
