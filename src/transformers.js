@@ -6,27 +6,27 @@ const _ = require('lodash');
  */
 
 function extractColumn(rows, column) {
-  return _.pluck(rows, column);
+  return _.map(rows, column);
 }
 
 function rowToMap(keys, values) {
-  return _.object(keys, values);
+  return _.fromPairs(keys, values);
 }
 
 function flattenToEntries(obj) {
-  return _.pairs(obj);
+  return _.toPairs(obj);
 }
 
 function pivotData(rows, keyField, valueField) {
-  const keys = _.pluck(rows, keyField);
-  const values = _.pluck(rows, valueField);
-  return _.object(keys, values);
+  const keys = _.map(rows, keyField);
+  const values = _.map(rows, valueField);
+  return _.fromPairs(keys, values);
 }
 
 function entriesToMap(entries) {
-  const keys = _.pluck(entries, 0);
-  const values = _.pluck(entries, 1);
-  return _.object(keys, values);
+  const keys = _.map(entries, 0);
+  const values = _.map(entries, 1);
+  return _.fromPairs(keys, values);
 }
 
 module.exports = { extractColumn, rowToMap, flattenToEntries, pivotData, entriesToMap };

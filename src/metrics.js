@@ -6,24 +6,24 @@ const _ = require('lodash');
  */
 
 function getMetricValues(dataPoints) {
-  return _.pluck(dataPoints, 'value');
+  return _.map(dataPoints, 'value');
 }
 
 function getTopMetric(dataPoints) {
   const sorted = _.sortBy(dataPoints, 'value').reverse();
-  return _.first(sorted);
+  return _.head(sorted);
 }
 
 function metricEntries(metricObj) {
-  return _.pairs(metricObj);
+  return _.toPairs(metricObj);
 }
 
 function getMetricNames(dataPoints) {
-  return _.pluck(dataPoints, 'name');
+  return _.map(dataPoints, 'name');
 }
 
 function firstMetricEntry(metricObj) {
-  return _.first(_.pairs(metricObj));
+  return _.head(_.toPairs(metricObj));
 }
 
 module.exports = { getMetricValues, getTopMetric, metricEntries, getMetricNames, firstMetricEntry };
